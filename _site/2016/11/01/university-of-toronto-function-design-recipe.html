@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>University of Toronto funciton design recipe | R / V</title>
+	<!-- <meta name="description" content="I’m doing this course, to transition to Python 3 mainly. But, I’m already discovering why it’s so well regarded, and that I have much to learn!"> -->
+	<meta name="description" content="foo">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="https://richyvk.github.io//2016/11/01/university-of-toronto-function-design-recipe.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="R / V" href="https://richyvk.github.io//feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+
+	<!-- Google Analytics -->
+	
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-21977045-3', 'auto');
+	ga('send', 'pageview');
+	</script>
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">R / V</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/archive/">
+					Posts
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+<li>
+	<a href="https://richyvk.github.io//feed.xml" title="RSS feed">
+		<i class="fa fa-fw fa-rss"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/richyvk" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+<li>
+	<a href="https://www.linkedin.com/in/richyvk/" title="Follow on LinkedIn">
+		<i class="fa fa-fw fa-linkedin"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/richyvk" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">University of Toronto funciton design recipe</h1>
+    <p class="meta">
+    November 1, 2016
+    
+    </p>
+  </header>
+  <section class="post-content"><p>I’m doing this course, to transition to Python 3 mainly. But, I’m already discovering why it’s so well regarded, and that I have much to learn!</p>
+
+<p>I really like there function design recipe, it goes like this:</p>
+
+<ol>
+  <li>Write some examples of what you want your function to do:
+    <div class="language-python highlighter-rouge"><pre class="highlight"><code> <span class="o">&gt;&gt;&gt;</span> <span class="n">some_function</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+ <span class="n">some_result</span>
+ <span class="o">&gt;&gt;&gt;</span> <span class="n">some_function</span><span class="p">(</span><span class="n">arg2</span><span class="p">)</span>
+ <span class="n">some_other_result</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Write the type contract:
+    <div class="language-python highlighter-rouge"><pre class="highlight"><code> <span class="p">(</span><span class="n">parameter</span> <span class="n">types</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">return</span> <span class="nb">type</span>  <span class="c"># e.g. (number, number) -&gt;int</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Write the function header, with meaningful names:
+ <code class="highlighter-rouge">python
+	def meaningful_func_name(meaningful_param_names):
+	</code></li>
+  <li>Write the description. Explain what is returned, and mention parameters explicitly.</li>
+  <li>Write the body of the function (the actual code).</li>
+  <li>Test using the examples written in point 1.</li>
+</ol>
+
+<p>Points 1, 2 and 4 become the docstring for the function, which can be called using help(function_name). The final function might look something like this:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">ellipse_string</span><span class="p">(</span><span class="n">long_string</span><span class="p">):</span>
+    <span class="s">"""(str) -&gt; str
+    Returns a string equal to the first 5 characters of long_string followed by ...
+    &gt;&gt;&gt; ellipse_string("Hello, World!")
+    'Hello...'
+    """</span>
+    <span class="k">return</span> <span class="n">long_string</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s">'...'</span></code></pre></figure>
+
+</section>
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <a id="prev-post" href="/2016/10/28/one-of-those-weeks.html">
+      <span class="page-title">One of those weeks</span>
+      <span class="nav-label">
+        <i class="fa fa-chevron-left"></i> Prev
+      </span>
+    </a>
+    
+    
+    <a id="next-post" href="/2016/12/02/recent-random-python-stuff.html">
+       <span class="page-title">Random Python stuff I’ve learned recently</span>
+       <span class="nav-label">
+        Next <i class="fa fa-chevron-right"></i>
+       </span>
+     </a>
+    
+</div>
+
+
+<!-- Disqus -->
+
+
+<!-- Muut -->
+
+    </div>
+    
+
+
+<footer class="site-footer">
+	<p class="text">Powered by <a href="http://jekyllrb.com">Jekyll</a> with a customised version of <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>
